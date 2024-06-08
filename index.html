@@ -8,5 +8,41 @@
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-title">Library</div>
+        <div class="header-colorscheme">
+          <button>dark/light</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="main-button-container">
+          <button class="main-button">+ Add book</button>
+        </div>
+        <div class="main-books-container"></div>
+      </div>
+    </div>
+    <dialog class="modal" id="modal">
+      <form>
+        <div class="from-box">
+          <label for="title">Title</label>
+          <input type="text" id="title" required />
+        </div>
+        <div class="from-box">
+          <label for="author">Author</label>
+          <input type="text" id="author" required />
+        </div>
+        <div class="from-box">
+          <label for="pages">Pages</label>
+          <input type="number" id="pages" required />
+        </div>
+        <div class="from-box">
+          <label for="is_read">read?</label>
+          <input type="checkbox" id="is_read" />
+        </div>
+        <button type="submit" class="modal-close-button">Add book</button>
+      </form>
+    </dialog>
+  </body>
 </html>

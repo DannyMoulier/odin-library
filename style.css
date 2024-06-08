@@ -1,3 +1,33 @@
 :root {
   color-scheme: dark;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.container > div {
+  padding: 15px;
+  border: solid white 1px;
+}
+
+.container {
+  display: grid;
+}
+
+.main {
+  display: grid;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-books-card {
+  border: solid white 1px;
+}
+
+/* .main-books-read-button {
+  color: red;
+} */
