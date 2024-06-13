@@ -5,17 +5,19 @@ const closeModalButton = document.querySelector(".modal-close-button");
 const form = document.querySelector("form");
 
 function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
+  this.title = '"' + title + '"';
+  this.author = "by " + author;
+  this.pages = pages + " pages";
   this.read = read;
 }
 
+// max pages in book = 100000
+
 Book.prototype.info = function () {
   if (this.read) {
-    return "read";
+    return "Read";
   } else {
-    return "not read";
+    return "Not read";
   }
 };
 
@@ -85,11 +87,11 @@ function displayBooks() {
       if (myLibrary[readIndex].read === true) {
         myLibrary[readIndex].read = false;
         readButton.innerText = myLibrary[readIndex].info();
-        readButton.style.color = "red";
+        readButton.style.background = "#ff453a";
       } else {
         myLibrary[readIndex].read = true;
         readButton.innerText = myLibrary[readIndex].info();
-        readButton.style.color = "green";
+        readButton.style.background = "#34aadc";
       }
     });
   });
@@ -109,10 +111,10 @@ function displayBooks() {
 function styleReadButton() {
   const readButtons = document.querySelectorAll(".main-books-read-button");
   readButtons.forEach((readButton) => {
-    if (readButton.innerText === "not read") {
-      readButton.style.color = "red";
+    if (readButton.innerText === "Not read") {
+      readButton.style.background = "#ff453a";
     } else {
-      readButton.style.color = "green";
+      readButton.style.background = "#34aadc";
     }
   });
 }

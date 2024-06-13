@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 :root {
   color-scheme: dark;
 }
@@ -6,13 +8,20 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
 .container > div {
   padding: 15px;
-  border: solid white 1px;
+  /* border: solid white 1px; */
 }
 
 .container {
   display: grid;
+  justify-self: center;
 }
 
 .main {
@@ -22,12 +31,75 @@
 .header {
   display: flex;
   justify-content: space-between;
+  background-color: #252526;
+  align-items: baseline;
+  border-bottom: 1px solid #303032;
+}
+
+.color-scheme-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: rgb(255, 255, 255);
+}
+
+.header-title {
+  font-family: "Playfair Display", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.main-button-container {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-button {
+  display: flex;
+  gap: 8px;
+}
+
+.main-button > div:first-child {
+  background-color: #ff453a;
+  width: 18.391px;
+  border-radius: 50%;
+  font-weight: 400;
+}
+
+.main-button > div:nth-child(2):hover {
+  text-decoration: underline;
+}
+
+.main-books-read-button {
+  width: 93.5%;
+  border-radius: 3px;
+  padding-block: 8px;
+}
+
+.main-books-remove-button {
+  width: 93.5%;
+  background-color: rgb(52, 52, 52);
+  border-radius: 3px;
+  padding-block: 8px;
 }
 
 .main-books-card {
-  border: solid white 1px;
+  /* border: solid white 1px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-block: 16px;
+  gap: 14px;
+  font-size: 1.5rem;
+  background-color: #151517;
+  border-radius: 6px;
+  border: 1px solid #303032;
 }
 
-/* .main-books-read-button {
-  color: red;
-} */
+.main-books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  row-gap: 32px;
+  column-gap: 24px;
+}
