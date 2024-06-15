@@ -17,7 +17,6 @@ body {
 
 .container > div {
   padding: 15px;
-  /* border: solid white 1px; */
 }
 
 .container {
@@ -57,6 +56,7 @@ body {
 
 .main-books-card-info {
   overflow-wrap: break-word;
+  font-size: 1.25rem;
 }
 
 .main-button {
@@ -81,6 +81,10 @@ body {
   padding-block: 8px;
 }
 
+.main-books-card-info:nth-child(2) {
+  margin-top: auto;
+}
+
 .main-books-remove-button {
   width: 93.5%;
   background-color: rgb(52, 52, 52);
@@ -89,17 +93,18 @@ body {
 }
 
 .main-books-card {
-  /* border: solid white 1px; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  text-align: center;
   padding-block: 16px;
   gap: 14px;
   font-size: 1.5rem;
   background-color: #151517;
   border-radius: 6px;
   border: 1px solid #303032;
+  word-break: break-word;
 }
 
 .main-books-container {

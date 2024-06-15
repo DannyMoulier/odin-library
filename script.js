@@ -4,6 +4,20 @@ const openModalButton = document.querySelector(".main-button");
 const closeModalButton = document.querySelector(".modal-close-button");
 const form = document.querySelector("form");
 
+const book1 = new Book("To Kill a Mockingbird", "Harper Lee", 281, true);
+
+const book2 = new Book("1984", "George Orwell", 328, true);
+const book3 = new Book(
+  "Harry Potter and the Sorcerer's Stone",
+  "J.K. Rowling",
+  309,
+  false
+);
+const book4 = new Book("The Catcher in the Rye", "J.D. Salinger", 224, false);
+const book5 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true);
+
+myLibrary.push(book1, book2, book3, book4, book5);
+
 function Book(title, author, pages, read) {
   this.title = '"' + title + '"';
   this.author = "by " + author;
@@ -141,5 +155,8 @@ modal.addEventListener("click", (e) => {
     modal.close();
   }
 });
+
+displayBooks();
+styleReadButton();
 
 // my girlfriend is the best
