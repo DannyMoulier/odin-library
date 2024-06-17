@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
   color-scheme: dark;
@@ -11,7 +11,7 @@
 
 body {
   background-color: #000000;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 .header-title {
-  font-family: "Playfair Display", sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   font-weight: 600;
   font-size: 2rem;
 }
@@ -109,7 +109,7 @@ body {
 
 .main-books-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 2fr));
   row-gap: 32px;
   column-gap: 24px;
 }
@@ -119,6 +119,11 @@ body {
   border-radius: 6px;
   background: rgba(20, 20, 20, 0.8);
   backdrop-filter: saturate(180%) blur(10px);
+}
+
+.modal::backdrop {
+  background-color: black;
+  opacity: 0.6;
 }
 
 .modal-title {
