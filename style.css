@@ -164,3 +164,8 @@ form {
   padding-block: 12px;
   border-radius: 6px;
 }
+
+.book-exists-indication {
+  color: #ff453a;
+  text-align: center;
+}

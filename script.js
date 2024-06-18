@@ -1,8 +1,10 @@
 const myLibrary = [];
 const modal = document.querySelector('.modal');
+const modalBox = document.querySelector('.dialog-box');
 const openModalButton = document.querySelector('.main-button');
 const closeModalButton = document.querySelector('.modal-close-button');
 const form = document.querySelector('form');
+const ifExists = document.querySelector('.book-exists-indication');
 
 const book1 = new Book('To Kill a Mockingbird', 'Harper Lee', 281, true);
 const book2 = new Book('1984', 'George Orwell', 328, true);
@@ -38,10 +40,16 @@ function addBookToLibrary(e) {
     document.getElementById('pages').value,
     document.getElementById('is_read').checked
   );
-  const find = myLibrary.find((book) => book.title === newBook.title && book.author === newBook.author);
+  const find = myLibrary.find(
+    (book) =>
+      book.title.toLowerCase() === newBook.title.toLowerCase() &&
+      book.author.toLowerCase() === newBook.author.toLowerCase()
+  );
   if (find) {
+    ifExists.innerText = 'Book already exists';
     return false;
   } else {
+    ifExists.innerText = '';
     myLibrary.push(newBook);
     document.querySelector('form').reset();
     return true;
@@ -64,25 +72,25 @@ function displayBooks() {
   displayedBooks.innerHTML = '';
 
   for (const book of myLibrary) {
-    const bookCard = addElement('main-books-card', false, 'div', book.title);
+    const bookCard = addElement('main-books-card', false, 'div', book.title + book.author);
     displayedBooks.append(bookCard);
 
     const keys = Object.keys(book);
 
     for (const key of keys) {
       if (key !== 'read') {
-        bookCard.append(addElement('main-books-card-info', book[key], 'div', book.title));
+        bookCard.append(addElement('main-books-card-info', book[key], 'div', book.title + book.author));
       } else if (key === 'read') {
-        bookCard.append(addElement('main-books-read-button', book.info(), 'button', book.title));
+        bookCard.append(addElement('main-books-read-button', book.info(), 'button', book.title + book.author));
       }
     }
-    const deleteButton = addElement('main-books-remove-button', 'Remove', 'button', book.title);
+    const deleteButton = addElement('main-books-remove-button', 'Remove', 'button', book.title + book.author);
     bookCard.append(deleteButton);
   }
   const readButtons = document.querySelectorAll('.main-books-read-button');
   readButtons.forEach((readButton) => {
     readButton.addEventListener('click', function () {
-      const readIndex = myLibrary.findIndex((book) => book.title === readButton.id);
+      const readIndex = myLibrary.findIndex((book) => book.title + book.author === readButton.id);
       if (myLibrary[readIndex].read === true) {
         myLibrary[readIndex].read = false;
         readButton.innerText = myLibrary[readIndex].info();
@@ -97,7 +105,7 @@ function displayBooks() {
   const deleteButtons = document.querySelectorAll('.main-books-remove-button');
   deleteButtons.forEach((deleteButton) => {
     deleteButton.addEventListener('click', function () {
-      const deleteIndex = myLibrary.findIndex((book) => book.title === deleteButton.id);
+      const deleteIndex = myLibrary.findIndex((book) => book.title + book.author === deleteButton.id);
       myLibrary.splice(deleteIndex, 1);
       const bookToRemove = document.getElementById(deleteButton.id);
       bookToRemove.remove();
@@ -131,13 +139,7 @@ form.addEventListener('submit', (e) => {
 });
 
 modal.addEventListener('click', (e) => {
-  const dialogDimensions = modal.getBoundingClientRect();
-  if (
-    e.clientX < dialogDimensions.left ||
-    e.clientX > dialogDimensions.right ||
-    e.clientY < dialogDimensions.top ||
-    e.clientY > dialogDimensions.bottom
-  ) {
+  if (e.target == modal) {
     modal.close();
   }
 });

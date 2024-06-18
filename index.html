@@ -40,24 +40,27 @@
         <div class="main-books-container"></div>
       </div>
     </div>
-    <dialog class="modal" id="modal">
-      <div class="modal-title">Add new book</div>
-      <form>
-        <div class="form-box">
-          <input type="text" id="title" placeholder="Title" maxlength="100" required />
-        </div>
-        <div class="form-box">
-          <input type="text" id="author" placeholder="Author" maxlength="100" required />
-        </div>
-        <div class="from-box">
-          <input type="number" id="pages" max="99999" placeholder="Pages" required />
-        </div>
-        <div class="form-box">
-          <label for="is_read">Have you read it?</label>
-          <input type="checkbox" id="is_read" />
-        </div>
-        <button type="submit" class="modal-close-button">Submit</button>
-      </form>
-    </dialog>
+    <div class="dialog-box">
+      <dialog class="modal" id="modal">
+        <div class="modal-title">Add new book</div>
+        <p class="book-exists-indication"></p>
+        <form>
+          <div class="form-box">
+            <input type="text" id="title" placeholder="Title" maxlength="100" required />
+          </div>
+          <div class="form-box">
+            <input type="text" id="author" placeholder="Author" maxlength="100" required />
+          </div>
+          <div class="from-box">
+            <input type="number" id="pages" max="99999" placeholder="Pages" required />
+          </div>
+          <div class="form-box">
+            <label for="is_read">Have you read it?</label>
+            <input type="checkbox" id="is_read" />
+          </div>
+          <button type="submit" class="modal-close-button">Submit</button>
+        </form>
+      </dialog>
+    </div>
   </body>
 </html>
