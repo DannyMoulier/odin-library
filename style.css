@@ -2,17 +2,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
+  --color-base-text: #000000;
+  --color-base-background: #ffffff;
+  --color-base-themebutton: #000000;
+  --color-base-border: #d8d8d8;
+  --color-base-header: #f8f8f8;
+  --color-base-card: #f1f1f1;
+  --color-base-input: #ffffff;
+  --color-border-input: #ffffff;
+  --color-button-remove: #cacaca;
+  --color-base-modal: #eaeaeacc;
 }
+
+.dark-mode {
+  color-scheme: dark;
+  --color-base-text: #ffffff;
+  --color-base-background: #000000;
+  --color-base-themebutton: #ffffff;
+  --color-base-border: #303032;
+  --color-base-header: #252526;
+  --color-base-card: #151517;
+  --color-base-input: #000000;
+  --color-border-input: #000000;
+  --color-button-remove: #343434;
+  --color-base-modal: #141414cc;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-base-text: #ffffff;
+    --color-base-background: #000000;
+    --color-base-themebutton: #ffffff;
+    --color-base-border: #303032;
+    --color-base-header: #252526;
+    --color-base-card: #151517;
+    --color-base-input: #000000;
+    --color-border-input: #000000;
+    --color-button-remove: #343434;
+    --color-base-modal: #141414cc;
+  }
+} */
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #000000;
+  background-color: var(--color-base-background);
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  color: var(--color-base-text);
 }
 
 .container > div {
@@ -31,15 +72,15 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #252526;
+  background-color: var(--color-base-header);
   align-items: baseline;
-  border-bottom: 1px solid #303032;
+  border-bottom: 1px solid var(--color-base-border);
 }
 
 .color-scheme-icon {
   width: 1.5rem;
   height: 1.5rem;
-  fill: rgb(255, 255, 255);
+  fill: var(--color-base-themebutton);
 }
 
 .header-title {
@@ -87,7 +128,7 @@ body {
 
 .main-books-remove-button {
   width: 93.5%;
-  background-color: rgb(52, 52, 52);
+  background-color: var(--color-button-remove);
   border-radius: 3px;
   padding-block: 8px;
 }
@@ -101,9 +142,9 @@ body {
   padding-block: 16px;
   gap: 14px;
   font-size: 1.5rem;
-  background-color: #151517;
+  background-color: var(--color-base-card);
   border-radius: 6px;
-  border: 1px solid #303032;
+  border: 1px solid var(--color-base-border);
   word-break: break-word;
 }
 
@@ -115,10 +156,11 @@ body {
 }
 
 .modal[open] {
-  border: 1px solid #404040;
+  border: 1px solid var(--color-base-border);
   border-radius: 6px;
-  background: rgba(20, 20, 20, 0.8);
+  background: var(--color-base-modal);
   backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
 }
 
 .modal::backdrop {
@@ -136,8 +178,8 @@ input {
   padding: 8px;
   border-radius: 4px;
   margin-block: 10px;
-  background-color: #000000;
-  border: #000000;
+  background-color: var(--color-base-input);
+  border: var(--color-border-input);
   padding: 10px;
 }
 

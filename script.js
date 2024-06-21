@@ -5,6 +5,7 @@ const openModalButton = document.querySelector('.main-button');
 const closeModalButton = document.querySelector('.modal-close-button');
 const form = document.querySelector('form');
 const ifExists = document.querySelector('.book-exists-indication');
+const colorSchemeButton = document.querySelector('.colorscheme-button');
 
 const book1 = new Book('To Kill a Mockingbird', 'Harper Lee', 281, true);
 const book2 = new Book('1984', 'George Orwell', 328, true);
@@ -124,6 +125,22 @@ function styleReadButton() {
   });
 }
 
+function checkSchemeIcon() {
+  const svgIcon = document.querySelector('.color-scheme-icon');
+  const sunIcon = `<path d="M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5,5-2.24,5-5-2.24-5-5-5Zm0,7c-1.1,0-2-.9-2-2s.9-2,2-2,2,.9,2,2-.9,2-2,2Zm4.95-6.95c-.59-.59-.59-1.54,0-2.12l1.41-1.41c.59-.59,1.54-.59,2.12,0,.59,.59,.59,1.54,0,2.12l-1.41,1.41c-.29,.29-.68,.44-1.06,.44s-.77-.15-1.06-.44ZM7.05,16.95c.59,.59,.59,1.54,0,2.12l-1.41,1.41c-.29,.29-.68,.44-1.06,.44s-.77-.15-1.06-.44c-.59-.59-.59-1.54,0-2.12l1.41-1.41c.59-.59,1.54-.59,2.12,0ZM3.51,5.64c-.59-.59-.59-1.54,0-2.12,.59-.59,1.54-.59,2.12,0l1.41,1.41c.59,.59,.59,1.54,0,2.12-.29,.29-.68,.44-1.06,.44s-.77-.15-1.06-.44l-1.41-1.41Zm16.97,12.73c.59,.59,.59,1.54,0,2.12-.29,.29-.68,.44-1.06,.44s-.77-.15-1.06-.44l-1.41-1.41c-.59-.59-.59-1.54,0-2.12,.59-.59,1.54-.59,2.12,0l1.41,1.41Zm3.51-6.36c0,.83-.67,1.5-1.5,1.5h-2c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5h2c.83,0,1.5,.67,1.5,1.5ZM3.5,13.5H1.5c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5H3.5c.83,0,1.5,.67,1.5,1.5s-.67,1.5-1.5,1.5ZM10.5,3.5V1.5c0-.83,.67-1.5,1.5-1.5s1.5,.67,1.5,1.5V3.5c0,.83-.67,1.5-1.5,1.5s-1.5-.67-1.5-1.5Zm3,17v2c0,.83-.67,1.5-1.5,1.5s-1.5-.67-1.5-1.5v-2c0-.83,.67-1.5,1.5-1.5s1.5,.67,1.5,1.5Z"/>`;
+  const moonIcon = `<path d="M15,24A12,12,0,1,1,19.058.71a2.93,2.93,0,0,1,.814,5.067c-5.1,3.92-5.088,8.539,0,12.446a2.93,2.93,0,0,1-.816,5.067A12.2,12.2,0,0,1,15,24ZM15,3a9,9,0,1,0,2.925,17.508c-6.511-5.065-6.489-11.969,0-17.016A9.322,9.322,0,0,0,15,3Z"/>`;
+  if (document.body.classList.contains('dark-mode')) {
+    svgIcon.innerHTML = sunIcon;
+  } else {
+    svgIcon.innerHTML = moonIcon;
+  }
+}
+
+colorSchemeButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  checkSchemeIcon();
+});
+
 openModalButton.addEventListener('click', () => {
   modal.showModal();
 });
@@ -146,5 +163,6 @@ modal.addEventListener('click', (e) => {
 
 displayBooks();
 styleReadButton();
+checkSchemeIcon();
 
 // my girlfriend is the best
