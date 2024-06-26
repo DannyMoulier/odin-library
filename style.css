@@ -16,6 +16,7 @@
   --color-button-remove: #cacaca;
   --color-button-remove-hover: #dfdfdf;
   --color-base-modal: #eaeaeacc;
+  --color-base-modal-close-hover: rgb(252, 109, 101);
 }
 
 .dark-mode {
@@ -33,6 +34,7 @@
   --color-button-remove: #343434;
   --color-button-remove-hover: #4b4b4b;
   --color-base-modal: #141414cc;
+  --color-base-modal-close-hover: rgb(252, 109, 101);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -229,4 +231,8 @@ form {
 .book-exists-indication {
   color: #ff453a;
   text-align: center;
+}
+
+.modal-close-button:hover {
+  background-color: var(--color-base-modal-close-hover);
 }
