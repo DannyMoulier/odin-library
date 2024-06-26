@@ -102,6 +102,20 @@ function displayBooks() {
         readButton.style.background = '#34aadc';
       }
     });
+    readButton.addEventListener('mouseover', function () {
+      if (readButton.style.background === 'rgb(255, 69, 58)') {
+        readButton.style.background = 'rgb(252, 109, 101)';
+      } else if (readButton.style.background === 'rgb(52, 170, 220)') {
+        readButton.style.background = 'rgb(100, 186, 222)';
+      }
+    });
+    readButton.addEventListener('mouseout', function () {
+      if (readButton.style.background === 'rgb(252, 109, 101)') {
+        readButton.style.background = 'rgb(255, 69, 58)';
+      } else if (readButton.style.background === 'rgb(100, 186, 222)') {
+        readButton.style.background = 'rgb(52, 170, 220)';
+      }
+    });
   });
   const deleteButtons = document.querySelectorAll('.main-books-remove-button');
   deleteButtons.forEach((deleteButton) => {
@@ -164,5 +178,3 @@ modal.addEventListener('click', (e) => {
 displayBooks();
 styleReadButton();
 checkSchemeIcon();
-
-// my girlfriend is the best

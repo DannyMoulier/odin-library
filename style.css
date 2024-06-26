@@ -6,12 +6,15 @@
   --color-base-text: #000000;
   --color-base-background: #ffffff;
   --color-base-themebutton: #000000;
+  --color-base-themebutton-hover: rgb(52, 170, 220);
   --color-base-border: #d8d8d8;
   --color-base-header: #f8f8f8;
   --color-base-card: #f1f1f1;
+  --color-base-card-hover: #f6f6f6;
   --color-base-input: #ffffff;
   --color-border-input: #ffffff;
   --color-button-remove: #cacaca;
+  --color-button-remove-hover: #dfdfdf;
   --color-base-modal: #eaeaeacc;
 }
 
@@ -20,12 +23,15 @@
   --color-base-text: #ffffff;
   --color-base-background: #000000;
   --color-base-themebutton: #ffffff;
+  --color-base-themebutton-hover: rgb(52, 170, 220);
   --color-base-border: #303032;
   --color-base-header: #252526;
   --color-base-card: #151517;
+  --color-base-card-hover: #202020;
   --color-base-input: #000000;
   --color-border-input: #000000;
   --color-button-remove: #343434;
+  --color-button-remove-hover: #4b4b4b;
   --color-base-modal: #141414cc;
 }
 
@@ -83,6 +89,10 @@ body {
   fill: var(--color-base-themebutton);
 }
 
+.color-scheme-icon:hover {
+  fill: var(--color-base-themebutton-hover);
+}
+
 .header-title {
   font-family: 'Playfair Display', sans-serif;
   font-weight: 600;
@@ -133,6 +143,10 @@ body {
   padding-block: 8px;
 }
 
+.main-books-remove-button:hover {
+  background-color: var(--color-button-remove-hover);
+}
+
 .main-books-card {
   display: flex;
   flex-direction: column;
@@ -146,6 +160,11 @@ body {
   border-radius: 6px;
   border: 1px solid var(--color-base-border);
   word-break: break-word;
+  transition: background-color 0.12s;
+}
+
+.main-books-card:hover {
+  background-color: var(--color-base-card-hover);
 }
 
 .main-books-container {
