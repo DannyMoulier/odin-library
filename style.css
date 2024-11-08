@@ -71,6 +71,7 @@ body {
 .container {
   display: grid;
   justify-self: center;
+  width: 100%;
 }
 
 .main {

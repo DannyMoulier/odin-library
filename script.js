@@ -7,31 +7,37 @@ const form = document.querySelector('form');
 const ifExists = document.querySelector('.book-exists-indication');
 const colorSchemeButton = document.querySelector('.colorscheme-button');
 
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = '"' + title + '"';
+    this.author = 'by ' + author;
+    this.pages = pages + ' pages';
+    this.read = read;
+  }
+  info() {
+    if (this.read) {
+      return 'Read';
+    } else {
+      return 'Not read';
+    }
+  }
+}
+
 const book1 = new Book('To Kill a Mockingbird', 'Harper Lee', 281, true);
 const book2 = new Book('1984', 'George Orwell', 328, true);
-const book3 = new Book("Harry Potter and the Sorcerer's Stone", 'J.K. Rowling', 309, false);
+const book3 = new Book(
+  "Harry Potter and the Sorcerer's Stone",
+  'J.K. Rowling',
+  309,
+  false
+);
 const book4 = new Book('The Catcher in the Rye', 'J.D. Salinger', 224, false);
 const book5 = new Book('The Great Gatsby', 'F. Scott Fitzgerald', 180, true);
 const book6 = new Book('test', 'test', 123, false);
 
 myLibrary.push(book1, book2, book3, book4, book5, book6);
 
-function Book(title, author, pages, read) {
-  this.title = '"' + title + '"';
-  this.author = 'by ' + author;
-  this.pages = pages + ' pages';
-  this.read = read;
-}
-
 // max pages in book = 100000
-
-Book.prototype.info = function () {
-  if (this.read) {
-    return 'Read';
-  } else {
-    return 'Not read';
-  }
-};
 
 function addBookToLibrary(e) {
   e.preventDefault();
@@ -73,25 +79,51 @@ function displayBooks() {
   displayedBooks.innerHTML = '';
 
   for (const book of myLibrary) {
-    const bookCard = addElement('main-books-card', false, 'div', book.title + book.author);
+    const bookCard = addElement(
+      'main-books-card',
+      false,
+      'div',
+      book.title + book.author
+    );
     displayedBooks.append(bookCard);
 
     const keys = Object.keys(book);
 
     for (const key of keys) {
       if (key !== 'read') {
-        bookCard.append(addElement('main-books-card-info', book[key], 'div', book.title + book.author));
+        bookCard.append(
+          addElement(
+            'main-books-card-info',
+            book[key],
+            'div',
+            book.title + book.author
+          )
+        );
       } else if (key === 'read') {
-        bookCard.append(addElement('main-books-read-button', book.info(), 'button', book.title + book.author));
+        bookCard.append(
+          addElement(
+            'main-books-read-button',
+            book.info(),
+            'button',
+            book.title + book.author
+          )
+        );
       }
     }
-    const deleteButton = addElement('main-books-remove-button', 'Remove', 'button', book.title + book.author);
+    const deleteButton = addElement(
+      'main-books-remove-button',
+      'Remove',
+      'button',
+      book.title + book.author
+    );
     bookCard.append(deleteButton);
   }
   const readButtons = document.querySelectorAll('.main-books-read-button');
   readButtons.forEach((readButton) => {
     readButton.addEventListener('click', function () {
-      const readIndex = myLibrary.findIndex((book) => book.title + book.author === readButton.id);
+      const readIndex = myLibrary.findIndex(
+        (book) => book.title + book.author === readButton.id
+      );
       if (myLibrary[readIndex].read === true) {
         myLibrary[readIndex].read = false;
         readButton.innerText = myLibrary[readIndex].info();
@@ -120,7 +152,9 @@ function displayBooks() {
   const deleteButtons = document.querySelectorAll('.main-books-remove-button');
   deleteButtons.forEach((deleteButton) => {
     deleteButton.addEventListener('click', function () {
-      const deleteIndex = myLibrary.findIndex((book) => book.title + book.author === deleteButton.id);
+      const deleteIndex = myLibrary.findIndex(
+        (book) => book.title + book.author === deleteButton.id
+      );
       myLibrary.splice(deleteIndex, 1);
       const bookToRemove = document.getElementById(deleteButton.id);
       bookToRemove.remove();
